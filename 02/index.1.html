@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+
+    <!-- Mustache 标签将会被替代为对应数据对象上 msg 属性的值 -->
+    {{ message }}
+
+    <!-- 如果只想一次性的插值，不想被数据驱动改变，用 v-once -->
+    <div v-once>{{ message }}</div>
+
+    <!-- 也可以渲染模板，用 v-html -->
+    <div v-html="messageHtml"></div>
+
+  </div>
+</body>
+<script src="../utils/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello vue for message!',
+      messageForOnce: 'Hellp vue for once message',
+      messageHtml: '<span style="color: red;"> Hello vue for template render</span>'
+    }
+  })
+</script>
+</html>

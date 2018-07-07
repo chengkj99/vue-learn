@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    message:
+    <input type="text" v-model="message">
+    <br/>
+  </div>
+</body>
+<script src="../utils/vue.js"></script>
+<script>
+  var app8 = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello vue'
+    },
+    // template: '<div id="app">template 中的 message: {{message}}</div>',
+    beforeCreate() {
+    console.log('调用了 beforeCreat 钩子函数', this.message)
+    },
+    created() {
+      console.log('调用了 created 钩子函数', this.message)
+    },
+    beforeMount() {
+      console.log('调用了 beforeMount 钩子函数')
+    },
+    mounted() {
+      console.log('调用了 mounted 钩子函数')
+    },
+    beforeUpdate() {
+      console.log('调用了 beforeUpdate 钩子函数')
+    },
+    updated () {
+      console.log('调用了 beforeUpdate 钩子函数')
+    }
+  })
+</script>
+</html>

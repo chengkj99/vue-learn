@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <p v-if="isShow">
+      Now you can see.
+    </p>
+
+    <!-- <p v-else>Now you can see others.</p> -->
+  </div>
+</body>
+<script src="../utils/vue.js"></script>
+<script>
+  var app3 = new Vue({
+    el: '#app',
+    data: {
+      isShow: true
+    }
+  })
+</script>
+</html>

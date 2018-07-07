@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    message:
+    <input type="text" v-model="message">
+    <br/>
+    reversedMessage is: {{ reversedMessage }}
+  </div>
+</body>
+<script src="../utils/vue.js"></script>
+<script>
+  var app7 = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello'
+    },
+    computed: {
+      reversedMessage() {
+        return this.message.split('').reverse().join('')
+      }
+    },
+    watch: {
+      message() {
+        // do ohter something
+      }
+    },
+    methods: {
+      // reversedMessage: function () {
+      //   return this.message.split('').reverse().join('')
+      // }
+    }
+  })
+</script>
+</html>

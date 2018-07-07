@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <button v-on:click="getRandomColor">
+      换个颜色
+    </button>
+    {{ value }}
+    <div v-bind:style="{background: value, width: '168px', height: '100px', marginTop: '10px'}"></div>
+  </div>
+</body>
+<script src="../utils/vue.js"></script>
+<script>
+  var app5 = new Vue({
+    el: '#app',
+    data: {
+      value: 'blue'
+    },
+    methods: {
+      getRandomColor() {
+        this.value =  '#'+(Math.random() * 0xffffff << 0).toString(16)
+      }
+    }
+  })
+</script>
+</html>

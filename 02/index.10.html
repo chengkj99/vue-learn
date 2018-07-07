@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <input type="text" v-model="value" @keyup.enter="add">
+    <ul v-for="todo in todos">
+      <todo-item :todo="todo.text" @remove="remove"></todo-item>
+    </ul>
+  </div>
+</body>
+<script src="../utils/vue.js"></script>
+
+<script type="x-template" id="todo-template">
+  <li class="item">
+    this is a {{ todo }} item.
+    <button @click="remove">remove</button>
+</li>
+</script>
+
+<script>
+
+  // 通过一个普通的 JavaScript 对象来定义局部组件
+  var TodoItem = {
+    props: ['todo'],
+    template: '#todo-template',
+    methods: {
+      remove() {
+        this.$emit('remove', this.todo)
+      }
+    }
+  }
+
+  var app10 = new Vue({
+    el: '#app',
+    data() {
+      return {
+        value: '',
+        todos: [
+          { text: 'Learn Vue' },
+          { text: 'Learn Javascript' },
+          { text: 'Learn PHP' },
+          { text: 'Learn Golang' }
+        ]
+      }
+    },
+    components: {
+      'todo-item': TodoItem
+    },
+    methods: {
+      remove(todoText) {
+        this.todos = this.todos.filter(function(todo) {
+          return todo.text !== todoText
+        })
+      },
+      add() {
+        let isInValid = this.todos.some(todo => {
+          return todo.text === this.value
+        })
+        if (isInValid) {
+          alert('添加重复啦！')
+          return
+        }
+        this.todos.push({text: this.value})
+      }
+    }
+  })
+
+</script>
+</html>

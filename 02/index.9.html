@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <ul v-for="todo in todos">
+      <todo-item :todo="todo.text"></todo-item>
+    </ul>
+  </div>
+
+
+</body>
+<script src="../utils/vue.js"></script>
+<script>
+
+  // 通过 Vue.component() 对象来注册,全局注册
+  Vue.component('todo-item', {
+    props: ['todo'],
+    template: '<li>this is a {{ todo }} item.</li>'
+  })
+
+  var app9 = new Vue({
+    el: '#app',
+    data() {
+      return {
+        todos: [
+          { text: 'Learn Vue' },
+          { text: 'Learn Javascript' },
+          { text: 'Learn PHP' },
+          { text: 'Learn Golang' }
+        ]
+      }
+    }
+  })
+
+
+  // // 通过一个普通的 JavaScript 对象来定义局部组件
+  // var TodoItem = {
+  //   props: ['todo'],
+  //   template: `<li class="item">this is a {{ todo }} item.</li>`
+  // }
+
+  // var app9 = new Vue({
+  //   el: '#app',
+  //   data() {
+  //     return {
+  //       todos: [
+  //         { text: 'Learn Vue' },
+  //         { text: 'Learn Javascript' },
+  //         { text: 'Learn PHP' },
+  //         { text: 'Learn Golang' }
+  //       ]
+  //     }
+  //   },
+  //   components: {
+  //     'todo-item': TodoItem
+  //   }
+  // })
+
+
+
+</script>
+</html>

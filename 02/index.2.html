@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+
+    <span v-bind:title="title">
+      这个 DOM 具有动态的 Title
+    </span>
+
+    <!-- <img v-bind:src="imgUrl"></img> -->
+
+  </div>
+</body>
+<script src="../utils/vue.js"></script>
+<script>
+  // http://o9h4emdrs.bkt.clouddn.com/atomatom-boom2.gif
+  var app2 = new Vue({
+    el: '#app',
+    data: {
+      title: 'title-1',
+      // imgUrl: 'http://o9h4emdrs.bkt.clouddn.com/live.jpg'
+    }
+  })
+</script>
+</html>

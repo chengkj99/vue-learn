@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+
+    <div>
+      <p>输入框</p>
+      <input v-model="message" placeholder="edit me">
+      <p>Message is: {{ message }}</p>
+    </div>
+
+    <div>
+      <p>复选框</p>
+      <input type="checkbox" id="Jack" value="Jack" v-model="checkedNames">
+      <label for="Jack">Jack</label>
+      <input type="checkbox" id="john" value="John" v-model="checkedNames">
+      <label for="john">John</label>
+      <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+      <label for="mike">Mike</label>
+      {{ checkedNames }}
+    </div>
+
+    <div>
+      <p>选择框</p>
+      <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+          {{ option.text }}
+        </option>
+      </select>
+      <span>Selected: {{ selected }}</span>
+    </div>
+
+    <!-- 实现一个 v-model， 也是一个没有任何修饰符的 v-model -->
+    <input type="text" :value="value" v-on:input="value = $event.target.value">
+    Value is: {{ value }}
+  </div>
+</body>
+<script src="../utils/vue.js"></script>
+<script>
+  var app6 = new Vue({
+    el: '#app',
+    data: {
+      message: '',
+      checked: '',
+      checkedNames: [],
+      selected: '',
+      options: [
+        { text: 'One', value: 'A' },
+        { text: 'Two', value: 'B' },
+        { text: 'Three', value: 'C' }
+      ],
+      value: ''
+    }
+  })
+</script>
+</html>
