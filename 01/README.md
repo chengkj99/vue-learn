@@ -15,6 +15,8 @@
 * V: view，视图，人眼可读性强的数据，表现为前端中的 dom 对象，如输入框，弹窗等
 * VM: 视图模型，将模型和视图进行双向绑定，表现为一些数据监听和数据绑定
 
+![双向绑定](../utils/bind.png)
+
 ### Get Vue
 
 Github: https://github.com/vuejs/vue
